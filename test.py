@@ -92,3 +92,15 @@ if __name__ == '__main__':
 
     json_data = json.dumps(jsonn, ensure_ascii=False)
     post_request(json_data)
+
+
+"""
+{"items": [{"attributes": [{"complex_id": 0, "id": 85, "values": [{"dictionary_value_id": 28732849, "value": "POLARIZED"}]}, {"complex_id": 0, "id": 8229, "values": [{"dictionary_value_id": 93866, "value": "Очки солнцезащитные"}]}, {"id": 9048, "complex_id": 0, "values": [{"dictionary_value_id": 0, "value": "X014 c1 солнцезащитные"}]}, {"id": 9725, "complex_id": 0, "values": [{"dictionary_value_id": 970867649, "value": "Весна-Лето 2021"}]}, {"id": 9163, "complex_id": 0, "values": [{"dictionary_value_id": 22880, "value": "Мужской"}]}], "barcode": "2007332058936", "category_id": 17038455, "depth": 200, "dimension_unit": "mm", "height": 70, "images": [], "name": "Мужские очки Весна-Лето 2021 POLARIZED", "offer_id": "X014 c1", "old_price": "1000", "premium_price": "750", "price": "800", "vat": "0", "weight": 100, "weight_unit": "g", "width": 100}]}
+{"result":{"task_id":216290937}}
+{"items": [{"attributes": [{"complex_id": 0, "id": 85, "values": [{"dictionary_value_id": 28732849, "value": "POLARIZED"}]}, {"complex_id": 0, "id": 8229, "values": [{"dictionary_value_id": 93866, "value": "Очки солнцезащитные"}]}, {"id": 9048, "complex_id": 0, "values": [{"dictionary_value_id": 0, "value": "X120375 c02 солнцезащитные"}]}, {"id": 9725, "complex_id": 0, "values": [{"dictionary_value_id": 970867649, "value": "Весна-Лето 2021"}]}, {"id": 9163, "complex_id": 0, "values": [{"dictionary_value_id": 22880, "value": "Женский, Мужской"}]}], "barcode": "2007332058745", "category_id": 85848444, "depth": 200, "dimension_unit": "mm", "height": 70, "images": [], "name": "Очки Унисекс Весна-Лето 2021 POLARIZED", "offer_id": "X120375 c02", "old_price": "1000", "premium_price": "750", "price": "800", "vat": "0", "weight": 100, "weight_unit": "g", "width": 100}]}
+{"result":{"task_id":216290953}}
+{"items": [{"attributes": [{"complex_id": 0, "id": 85, "values": [{"dictionary_value_id": 28732849, "value": "POLARIZED"}]}, {"complex_id": 0, "id": 8229, "values": [{"dictionary_value_id": 93866, "value": "Очки солнцезащитные"}]}, {"id": 9048, "complex_id": 0, "values": [{"dictionary_value_id": 0, "value": "X120092 c1 солнцезащитные"}]}, {"id": 9725, "complex_id": 0, "values": [{"dictionary_value_id": 970867649, "value": "Весна-Лето 2021"}]}, {"id": 9163, "complex_id": 0, "values": [{"dictionary_value_id": 22880, "value": "Женский, Мужской"}]}], "barcode": "2007332058707", "category_id": 85848444, "depth": 200, "dimension_unit": "mm", "height": 70, "images": [], "name": "Очки Унисекс Весна-Лето 2021 POLARIZED", "offer_id": "X120092 c1", "old_price": "1000", "premium_price": "750", "price": "800", "vat": "0", "weight": 100, "weight_unit": "g", "width": 100}]}
+{"result":{"task_id":216290961}}
+Создано 41 товаров!
+
+"""

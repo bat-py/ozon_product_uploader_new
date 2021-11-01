@@ -11,7 +11,7 @@ def get_header():
     config.read('config.ini')
     data = config['HEADERS']
 
-    header = {'Client-Id': int(data['Client-Id']), 'Api-Key': data['Api-Key'], 'Content-type': 'application/json'}
+    header = data
     return header
 
 
@@ -32,7 +32,7 @@ def uploader(data, photo_upload_method):
 
     i = 0
     for article, datas in data.items():
-        if i > 3:
+        if i > 2:
             break
         i += 1
 

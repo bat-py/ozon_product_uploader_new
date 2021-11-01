@@ -12,13 +12,13 @@ config.read('config.ini')
 
 def get_photo_upload_method_from_user():
     correct_answears = ['1', '2']
-    mesg = 'Выберете метод загрузки фотографий:\n1. Автоматически (через json)\n2. Вручную (через seller.ozon.ru)\n\nОтвет:'
+    mesg = 'Выберете метод загрузки фотографий:\n1. Автоматически (через json)\n2. Вручную (через seller.ozon.ru)\n\nОтвет: '
 
     answer = input(mesg)
 
     if answer not in correct_answears:
         print('Неправильный ответ!\n')
-        get_photo_upload_method_from_user()
+        answer = get_photo_upload_method_from_user()
 
     return int(answer)
 
@@ -132,7 +132,7 @@ def image_creator_to_upload(ready_data):
         trash_files = os.listdir('fotos_to_upload')
 
         for file in trash_files:
-            os.remove('fotos_to_upload/'+file)
+            os.remove('fotos_to_upload/' + file)
     else:
         os.mkdir('fotos_to_upload')
 
@@ -168,4 +168,4 @@ if __name__ == '__main__':
     # В папке fotos_to_upload создаем фотографии с названием артикула для загрузки вручную
     image_creator_to_upload(ready_data)
 
-    #uploader(ready_data, photo_upload_method)
+    uploader(ready_data, photo_upload_method)
