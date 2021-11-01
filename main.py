@@ -10,6 +10,19 @@ config = configparser.ConfigParser()
 config.read('config.ini')
 
 
+def get_photo_upload_method_from_user():
+    correct_answears = ['1', '2']
+    mesg = 'Выберете метод загрузки фотографий:\n1. Автоматически (через json)\n2. Вручную (через seller.ozon.ru)\n\nОтвет:'
+
+    answer = input(mesg)
+
+    if answer not in correct_answears:
+        print('Неправильный ответ!\n')
+        get_photo_upload_method_from_user()
+
+    return int(answer)
+
+
 def get_product_data():
     """
     Возвращает dict: { barcode: [articule, sex], ... }
@@ -145,6 +158,8 @@ def image_creator_to_upload(ready_data):
 
 
 if __name__ == '__main__':
+    photo_upload_method = get_photo_upload_method_from_user()
+
     product_data = get_product_data()
 
     # Получает dict типа: { articule: [barcode, sex, [links_to_images, ...] ] }
@@ -153,4 +168,4 @@ if __name__ == '__main__':
     # В папке fotos_to_upload создаем фотографии с названием артикула для загрузки вручную
     image_creator_to_upload(ready_data)
 
-    uploader(ready_data)
+    #uploader(ready_data, photo_upload_method)

@@ -22,7 +22,7 @@ def post_request(json_data):
     print(req.text)
 
 
-def uploader(data):
+def uploader(data, photo_upload_method):
     # в data есть dict:  { articule: [barcode, sex, [links_to_images, ...] ] }
     config = configparser.ConfigParser()
     config.read('config.ini')
@@ -48,6 +48,11 @@ def uploader(data):
         else:
             sex_for_name = 'Мужские очки'
             category_id = 17038455
+
+        if photo_upload_method == 1:
+            images = datas[2]
+        else:
+            images = []
 
         json_data = {
             "items": [
@@ -95,7 +100,7 @@ def uploader(data):
                     "depth": 200,
                     "dimension_unit": "mm",
                     "height": 70,
-                    "images": datas[2],
+                    "images": images,
                     "name": f"{sex_for_name} {season} {brand}",
                     "offer_id": f"{article.strip()}",
                     "old_price": "1000",
