@@ -114,6 +114,7 @@ def uploader(data):
         print(ready_json)
         post_request(ready_json)
 
+    print(f'Создано {str(len(data))} товаров!')
 
 
 
