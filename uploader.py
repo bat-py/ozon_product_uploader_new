@@ -35,6 +35,7 @@ def uploader(data):
         if i > 3:
             break
         i += 1
+
         if datas[1].lower().strip() == 'мужской':
             sex_for_name = 'Мужские очки'
             category_id = 17038455

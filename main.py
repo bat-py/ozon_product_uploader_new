@@ -152,5 +152,5 @@ if __name__ == '__main__':
 
     # В папке fotos_to_upload создаем фотографии с названием артикула для загрузки вручную
     image_creator_to_upload(ready_data)
-    print(ready_data)
-    #uploader(ready_data)
+
+    uploader(ready_data)
