@@ -1,18 +1,18 @@
 import requests
 import json
+import configparser
+import configparser
 
 def get_header():
     """
-    Из файла config.ini берет Client-Id и Api-Key. Вернет библиотеку header = {'Client-Id': data[0], 'Api-Key': data[1]}
+    Из файла config.ini берет Client-Id и Api-Key. Вернет библиотеку header = {'Client-Id', 'Api-Key', 'Content-type'}
     """
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+    data = config['HEADERS']
 
-    with open('config.ini') as conf:
-        config = conf.readlines()
-
-        data = [i.split('=')[1].strip().replace('"', '') for i in config]
-        header = {'Client-Id': data[0], 'Api-Key': data[1], 'Content-type': 'application/json'}
-
-        return header
+    header = {'Client-Id': int(data['Client-Id']), 'Api-Key': data['Api-Key'], 'Content-type': 'application/json'}
+    return header
 
 
 def post_request(json_data):
@@ -24,10 +24,13 @@ def post_request(json_data):
 
 def uploader(data):
     # в data есть dict:  { articule: [barcode, sex, [links_to_images, ...] ] }
-    season = 'Весна-Лето 2021'
-    brand = 'POLARIZED'
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+
+    season = config['TOVARS_DATA']['season']
+    brand = config['TOVARS_DATA']['brand']
+
     i = 0
-    ii = 0
     for article, datas in data.items():
         if i > 3:
             break
@@ -44,9 +47,6 @@ def uploader(data):
         else:
             sex_for_name = 'Мужские очки'
             category_id = 17038455
-
-        # URL to images
-        print(datas[2])
 
         json_data = {
             "items": [
@@ -96,7 +96,7 @@ def uploader(data):
                     "height": 70,
                     "images": datas[2],
                     "name": f"{sex_for_name} {season} {brand}",
-                    "offer_id": f"{article}",
+                    "offer_id": f"{article.strip()}",
                     "old_price": "1000",
                     "premium_price": "750",
                     "price": "800",
@@ -110,6 +110,7 @@ def uploader(data):
         }
 
         ready_json = json.dumps(json_data, ensure_ascii=False, )
+        print(ready_json)
         post_request(ready_json)
 
 
